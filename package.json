@@ -1,0 +1,77 @@
+{
+  "name": "incindent-management",
+  "version": "1.0.0",
+  "dependencies": {
+    "@cap-js/hana": "^2.8.0",
+    "@sap/cds": "^9",
+    "@sap/xssec": "^4.13.0"
+  },
+  "devDependencies": {
+    "@cap-js/cds-test": "^1.0.1",
+    "@cap-js/sqlite": "^2",
+    "@sap/cds-dk": "^9",
+    "cds-plugin-ui5": "^0.13.0"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-incidents": "cds watch --open ns.incidents/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "test": "npx jest tests/test.js"
+  },
+  "cds": {
+    "requires": {
+      "[development]": {
+        "auth": {
+          "kind": "mocked",
+          "users": {
+            "alice": {
+              "roles": [
+                "support"
+              ]
+            },
+            "bob": {
+              "roles": [
+                "support"
+              ]
+            }
+          }
+        }
+      },
+      "[production]": {
+        "db": {
+          "kind": "hana",
+          "credentials": {
+            "port": "443",
+            "user": "DBADMIN",
+            "password": "Sveta534!",
+            "schema": "DBADMIN",
+            "host": "https://api.gateway.orchestration.prod-us10.hanacloud.ondemand.com/",
+            "encrypt": true,
+            "sslValidateCertificate": true
+          }
+        },
+        "auth": {
+          "kind": "mocked",
+          "users": {
+            "alice": {
+              "roles": [
+                "support"
+              ]
+            },
+            "bob": {
+              "roles": [
+                "support"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "private": true,
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/incidents"
+  ]
+}
