@@ -1,4 +1,31 @@
 {
   "xsappname": "incindent-management",
-  "tenant-mode": "shared"
+  "tenant-mode": "shared",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.support",
+      "description": "Support role"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "SupportRoleTemplate",
+      "description": "Template for support users",
+      "scope-references": [
+        "$XSAPPNAME.support"
+      ]
+    }
+  ],
+  "role-collections": [
+    {
+      "name": "AutoSupportRoleCollection",
+      "description": "Auto generated cillection for support",
+      "role-template-references": [
+        "$XSAPPNAME.SupportRoleTemplate"
+      ]
+    }
+  ],
+  "authorities": [
+    "$XSAPPNAME.support"
+  ]
 }

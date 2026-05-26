@@ -21,4 +21,4 @@ service AdminService {
     entity Incidents as projection on my.Incidents;
 }
 
-annotate AdminService with @(requires: 'admin');
+annotate AdminService with @(requires: 'support');

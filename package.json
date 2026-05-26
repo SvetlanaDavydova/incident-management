@@ -4,7 +4,9 @@
   "dependencies": {
     "@cap-js/hana": "^2.8.0",
     "@sap/cds": "^9",
-    "@sap/xssec": "^4.13.0"
+    "@sap/xsenv": "^6.2.1",
+    "@sap/xssec": "^4.13.0",
+    "passport": "^0.7.0"
   },
   "devDependencies": {
     "@cap-js/cds-test": "^1.0.1",
@@ -50,19 +52,7 @@
           }
         },
         "auth": {
-          "kind": "mocked",
-          "users": {
-            "alice": {
-              "roles": [
-                "support"
-              ]
-            },
-            "bob": {
-              "roles": [
-                "support"
-              ]
-            }
-          }
+          "kind": "xsuaa"
         }
       }
     }
