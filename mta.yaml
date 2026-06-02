@@ -31,6 +31,9 @@ modules:
     path: gen/db
     requires:
       - name: incindent-management-db
+    parameters:
+      buildpack: nodejs_buildpack
+      no-start: true
 
 resources:
   - name: incindent-management-auth
