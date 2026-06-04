@@ -8,6 +8,12 @@ class ProcessorService extends cds.ApplicationService {
 
     this.before("CREATE", "Customers", (req) => this.validateCustomerName(req));
 
+    this.on("tryDestination", async (req) => {
+      const remoteService = await cds.connect.to('ExternalService');
+
+      return await remoteService.tx(req).run(SELECT.from('Products').limit(5));
+    })
+
     return super.init();
   }
 

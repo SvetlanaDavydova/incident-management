@@ -26,6 +26,7 @@ modules:
     requires:
       - name: incindent-management-auth
       - name: incindent-management-db
+      - name: north-destination-service
   - name: incindent-management-db-deployer
     type: hdb
     path: gen/db
@@ -47,3 +48,8 @@ resources:
     parameters:
       service: hana
       service-plan: hdi-shared
+  - name: north-destination-service
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: destination
+      service-plan: lite
